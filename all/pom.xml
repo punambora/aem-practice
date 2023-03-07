@@ -49,6 +49,7 @@
                 <artifactId>filevault-package-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
+                    <allowIndexDefinitions>true</allowIndexDefinitions>
                     <group>com.aem.practice</group>
                     <packageType>container</packageType>
                     <!-- skip sub package validation for now as some vendor packages like CIF apps will not pass -->
@@ -124,6 +125,17 @@
                             <target>/apps/aempractice-vendor-packages/content/install</target>
                         </embedded>
                     </embeddeds>
+                    <subPackages>
+                        <subPackage>
+
+                            <groupId>com.adobe.acs</groupId>
+
+                            <artifactId>acs-aem-commons-content</artifactId>
+
+                            <filter>true</filter>
+
+                        </subPackage>
+                    </subPackages>
                 </configuration>
             </plugin>
             <plugin>
@@ -263,6 +275,12 @@
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.examples.ui.content</artifactId>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.acs</groupId>
+            <artifactId>acs-aem-commons-content</artifactId>
+            <classifier>min</classifier>
             <type>zip</type>
         </dependency>
     </dependencies>
